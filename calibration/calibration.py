@@ -15,15 +15,17 @@ class Calibrator:
             )
 
     def correct_input(self, ch: int, voltage):
-        if(ch != 1 and ch != 2):
-            print("Improper channel (must be 1 or 2). Setting to input 1 configs")
-            ch = 1
+        if(ch != "in1" and ch != "in2"):
+            print("Improper channel (must be in1 or in2). Setting to input 1 configs")
+            ch = "in1"
 
-        return self.calibration_configs[f"input{ch}"]["gain"] * voltage + self.calibration_configs[f"input{ch}"]["offset"]
+        return self.calibration_configs[ch]["gain"] * voltage + self.calibration_configs[ch]["offset"]
 
     def correct_output(self, ch: int, voltage):
-        if(ch != 1 and ch != 2):
-            print("Improper channel (must be 1 or 2). Setting to output 1 configs")
-            ch = 1
+        if(ch == "off"):
+            return voltage
+        if(ch != "out1" and ch != "out2"):
+            print("Improper channel (must be out1 or out2). Setting to output 1 configs")
+            ch = "out1"
 
-        return self.calibration_configs[f"output{ch}"]["gain"] * voltage + self.calibration_configs[f"output{ch}"]["offset"]
+        return self.calibration_configs[ch]["gain"] * voltage + self.calibration_configs[ch]["offset"]
