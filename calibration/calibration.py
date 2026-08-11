@@ -10,8 +10,10 @@ class Calibrator:
             print("Voltage config file not found, using default (no gain/offset) settings!")
             self.calibration_configs = dict(
                 name = "default",
-                input1 = dict(gain = 1, offset = 0),
-                input2 = dict(gain = 1, offset = 0)
+                in1 = dict(gain = 1, offset = 0),
+                in2 = dict(gain = 1, offset = 0),
+                out1 = dict(gain = 1, offset = 0),
+                out2 = dict(gain = 1, offset = 0)
             )
 
     def correct_input(self, ch: int, voltage):
