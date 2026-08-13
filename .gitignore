@@ -1,3 +1,6 @@
 fig.png
 .vscode/
 *.png
+.DS_Store
+test.ipynb
+calibration/__pycache__
